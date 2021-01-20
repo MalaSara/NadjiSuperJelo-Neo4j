@@ -18,7 +18,7 @@ namespace NadjiSuperJelo
     {
         private GraphClient client;
 
-        //relationships:RATED, ACTS_IN, FRIEND, DIRECTED
+        //relationships:RATED, SASTOJAK
 
         public Form1()
         {
@@ -29,7 +29,7 @@ namespace NadjiSuperJelo
         {
             // sara - autentifikacija
             // kate - edukacija
-            client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "edukacija");
+            client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "nadjisuperjelo");
 
 
             try
@@ -72,11 +72,14 @@ namespace NadjiSuperJelo
                 autor.prezime + "', brojJela:" + autor.brojJela + "', brojOcena:" + autor.brojOcena + "}) return n",
                 queryDict, CypherResultMode.Set);
 
+         
+
+
             // !!!! ovde javlja null exception
-            /*List<Autor> autori = ((IRawGraphClient)client).ExecuteGetCypherResults<Autor>(query).ToList();
+            List<Autor> autori = ((IRawGraphClient)client).ExecuteGetCypherResults<Autor>(query).ToList();
 
             foreach (Autor a in autori)
-                MessageBox.Show(a.ime);*/
+                MessageBox.Show(a.ime);
 
             this.Close();
         }
@@ -159,6 +162,127 @@ namespace NadjiSuperJelo
             {
                 //DateTime bday = a.getBirthday();
                 MessageBox.Show(a.ime);
+            }
+        }
+
+        private void DodajJela_Click(object sender, EventArgs e)
+        {
+            Jelo jelo = new Jelo();
+
+            jelo.idJelo = "1";
+            jelo.autor = "Sara Milovanovic";
+            jelo.nazivJela = "Ćufte u paradajz sosu";
+            jelo.nacinPripreme = "prženje";
+            jelo.Sastojci = new List<Sastojak>();
+            jelo.Sastojci.Add("Mleveno meso");
+            jelo.Sastojci.Add("Jaja");
+            jelo.ocenaJela = "9";
+            jelo.brojOcenaJela = 3;
+
+
+            //}
+
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idJelo", jelo.idJelo);
+            queryDict.Add("autor", jelo.autor);
+            queryDict.Add("nazivJela", jelo.nazivJela);
+            queryDict.Add("nacinPripreme", jelo.nacinPripreme);
+            queryDict.Add("Sastojci", jelo.Sastojci);
+            queryDict.Add("ocenaJela", jelo.ocenaJela);
+            queryDict.Add("brojOcenaJela", jelo.brojOcenaJela);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("CREATE (n: Jelo {idJelo:'" + jelo.idJelo +
+                "', autor:" + jelo.autor + ", nazivJela:'" + jelo.nazivJela + "', nacinPripreme:'" +
+                jelo.nacinPripreme + "', Sastojci:" + jelo.Sastojci + "', ocenaJela:" + jelo.ocenaJela + "', brojOcenaJela:" + jelo.brojOcenaJela + "}) return n",
+                queryDict, CypherResultMode.Set);
+
+            List<Jelo> jela = ((IRawGraphClient)client).ExecuteGetCypherResults<Jelo>(query).ToList();
+
+            foreach (Jelo j in jela)
+                MessageBox.Show(j.nazivJela + " " + j.autor);
+
+            this.Close();
+        }
+
+        private void ObrisiJela_Click(object sender, EventArgs e)
+        {
+
+            string unos = tboxIdJela.Value.ToString();
+
+            if (unos != "0")
+            {
+                Dictionary<string, object> queryDict = new Dictionary<string, object>();
+                queryDict.Add("idJelo", unos);
+
+                var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where " +
+                    "(n:Jelo) and exists(n.idJelo) and n.idJelo =~ {idJelo} detach delete n",
+                     queryDict, CypherResultMode.Projection);
+
+                List<Jelo> jela = ((IRawGraphClient)client).ExecuteGetCypherResults<Jelo>(query).ToList();
+
+                foreach (Jelo jelo  in jela)
+                {
+                    MessageBox.Show(jelo.nazivJela);
+                }
+            }
+            else
+                MessageBox.Show("Niste uneli ispravan id!");
+        }
+
+        private void IzmeniJelo_Click(object sender, EventArgs e)
+        {
+
+            string idjelo = tboxIdJela.Value.ToString();
+            int ocenajelo = (int)tboxOcena.Value;
+
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idJelo", idjelo);
+
+            
+
+            var queryBrojOcena = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Jelo) and has(n.idJelo) and " +
+                "n.idJelo =~ {idJelo} return n.brojOcenaJela", queryDict, CypherResultMode.Projection);
+            int brOcena = Convert.ToInt32(((IRawGraphClient)client).ExecuteGetCypherResults<Jelo>(queryBrojOcena));//.ToString());
+            brOcena++;
+
+            // izvlacim trenutnu srednju ocenu
+            var querySrednjaOcena = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Jelo) and has(n.idJelo) and " +
+                "n.idJelo =~ {idJelo} return n.ocenaJela", queryDict, CypherResultMode.Projection);
+            double srednjaOcena = Convert.ToDouble(((IRawGraphClient)client).ExecuteGetCypherResults<Autor>(queryBrojOcena));//.ToString());
+            srednjaOcena = (srednjaOcena + ocenajelo) / brOcena;
+
+
+            queryDict.Add("ocenaJela", srednjaOcena);
+            queryDict.Add("brojOcenaJela", brOcena);
+            // update
+            var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Jelo) and has(n.idJelo) and n.idJelo =~ {idJelo} " +
+                "set n.ocenaJela = {ocenaJela}, n.brojOcenaJela = {brojOcenaJela} return n",
+                new Dictionary<string, object>(), CypherResultMode.Set);
+
+            List<Jelo> jela = ((IRawGraphClient)client).ExecuteGetCypherResults<Jelo>(query).ToList();
+
+            foreach (Jelo jelo in jela)
+            {
+                MessageBox.Show("Ocena: " + jelo.ocenaJela );
+            }
+        }
+
+        private void PronadjiJeloPoSastojku_Click_1(object sender, EventArgs e)
+        {
+            string sastojak = ".*" + tboxNadjiJelo.Text + ".*";
+
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("Sastojak", sastojak);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("start n = node(*) match(n) < -[r: SASTOJAK] - (a)where exists(n.naziv) and n.naziv = ~ { sastojak } return a"
+               , queryDict, CypherResultMode.Set);
+
+            List<Sastojak> sastojci = ((IRawGraphClient)client).ExecuteGetCypherResults<Sastojak>(query).ToList();
+
+            foreach (Sastojak sas in sastojci)
+            {
+                //DateTime bday = a.getBirthday();
+                MessageBox.Show(sas.naziv);
             }
         }
     }

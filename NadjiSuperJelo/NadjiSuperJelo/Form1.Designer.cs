@@ -29,20 +29,35 @@
         private void InitializeComponent()
         {
             this.grpboxAutor = new System.Windows.Forms.GroupBox();
-            this.btnDodajAutore = new System.Windows.Forms.Button();
-            this.btnObrisiAutora = new System.Windows.Forms.Button();
-            this.nudIdAutora = new System.Windows.Forms.NumericUpDown();
-            this.btnIzmeniAutora = new System.Windows.Forms.Button();
-            this.nudIdAutoraZaOcenjivanje = new System.Windows.Forms.NumericUpDown();
-            this.numOcena = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtGetAutori = new System.Windows.Forms.TextBox();
             this.btnPronadjiAutoraPoImenu = new System.Windows.Forms.Button();
+            this.txtGetAutori = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numOcena = new System.Windows.Forms.NumericUpDown();
+            this.nudIdAutoraZaOcenjivanje = new System.Windows.Forms.NumericUpDown();
+            this.btnIzmeniAutora = new System.Windows.Forms.Button();
+            this.nudIdAutora = new System.Windows.Forms.NumericUpDown();
+            this.btnObrisiAutora = new System.Windows.Forms.Button();
+            this.btnDodajAutore = new System.Windows.Forms.Button();
+            this.Jela = new System.Windows.Forms.GroupBox();
+            this.PronadjiJeloPoSastojku = new System.Windows.Forms.Button();
+            this.tboxNadjiJelo = new System.Windows.Forms.TextBox();
+            this.IzmeniJelo = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tboxOcena = new System.Windows.Forms.NumericUpDown();
+            this.tboxIdJelo = new System.Windows.Forms.NumericUpDown();
+            this.ObrisiJela = new System.Windows.Forms.Button();
+            this.tboxIdJela = new System.Windows.Forms.NumericUpDown();
+            this.DodajJela = new System.Windows.Forms.Button();
             this.grpboxAutor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutora)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutoraZaOcenjivanje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOcena)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutoraZaOcenjivanje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutora)).BeginInit();
+            this.Jela.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxOcena)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxIdJelo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxIdJela)).BeginInit();
             this.SuspendLayout();
             // 
             // grpboxAutor
@@ -64,69 +79,40 @@
             this.grpboxAutor.TabStop = false;
             this.grpboxAutor.Text = "Autor";
             // 
-            // btnDodajAutore
+            // btnPronadjiAutoraPoImenu
             // 
-            this.btnDodajAutore.Location = new System.Drawing.Point(6, 19);
-            this.btnDodajAutore.Name = "btnDodajAutore";
-            this.btnDodajAutore.Size = new System.Drawing.Size(131, 23);
-            this.btnDodajAutore.TabIndex = 1;
-            this.btnDodajAutore.Text = "Dodaj Autore";
-            this.btnDodajAutore.UseVisualStyleBackColor = true;
-            this.btnDodajAutore.Click += new System.EventHandler(this.btnDodajAutore_Click);
+            this.btnPronadjiAutoraPoImenu.Location = new System.Drawing.Point(143, 165);
+            this.btnPronadjiAutoraPoImenu.Name = "btnPronadjiAutoraPoImenu";
+            this.btnPronadjiAutoraPoImenu.Size = new System.Drawing.Size(139, 23);
+            this.btnPronadjiAutoraPoImenu.TabIndex = 10;
+            this.btnPronadjiAutoraPoImenu.Text = "Pronadji Autora po imenu";
+            this.btnPronadjiAutoraPoImenu.UseVisualStyleBackColor = true;
+            this.btnPronadjiAutoraPoImenu.Click += new System.EventHandler(this.btnPronadjiAutoraPoImenu_Click);
             // 
-            // btnObrisiAutora
+            // txtGetAutori
             // 
-            this.btnObrisiAutora.Location = new System.Drawing.Point(143, 63);
-            this.btnObrisiAutora.Name = "btnObrisiAutora";
-            this.btnObrisiAutora.Size = new System.Drawing.Size(139, 23);
-            this.btnObrisiAutora.TabIndex = 1;
-            this.btnObrisiAutora.Text = "Obrisi Autora";
-            this.btnObrisiAutora.UseVisualStyleBackColor = true;
-            this.btnObrisiAutora.Click += new System.EventHandler(this.btnObrisiAutora_Click);
+            this.txtGetAutori.Location = new System.Drawing.Point(6, 168);
+            this.txtGetAutori.Name = "txtGetAutori";
+            this.txtGetAutori.Size = new System.Drawing.Size(131, 20);
+            this.txtGetAutori.TabIndex = 9;
             // 
-            // nudIdAutora
+            // label2
             // 
-            this.nudIdAutora.Location = new System.Drawing.Point(6, 63);
-            this.nudIdAutora.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.nudIdAutora.Name = "nudIdAutora";
-            this.nudIdAutora.Size = new System.Drawing.Size(131, 20);
-            this.nudIdAutora.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Ocena:";
             // 
-            // btnIzmeniAutora
+            // label1
             // 
-            this.btnIzmeniAutora.Location = new System.Drawing.Point(143, 113);
-            this.btnIzmeniAutora.Name = "btnIzmeniAutora";
-            this.btnIzmeniAutora.Size = new System.Drawing.Size(139, 23);
-            this.btnIzmeniAutora.TabIndex = 3;
-            this.btnIzmeniAutora.Text = "Izmeni/Oceni Autora";
-            this.btnIzmeniAutora.UseVisualStyleBackColor = true;
-            this.btnIzmeniAutora.Click += new System.EventHandler(this.btnIzmeniAutora_Click);
-            // 
-            // nudIdAutoraZaOcenjivanje
-            // 
-            this.nudIdAutoraZaOcenjivanje.Location = new System.Drawing.Point(80, 101);
-            this.nudIdAutoraZaOcenjivanje.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.nudIdAutoraZaOcenjivanje.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudIdAutoraZaOcenjivanje.Name = "nudIdAutoraZaOcenjivanje";
-            this.nudIdAutoraZaOcenjivanje.Size = new System.Drawing.Size(57, 20);
-            this.nudIdAutoraZaOcenjivanje.TabIndex = 4;
-            this.nudIdAutoraZaOcenjivanje.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Id za ocenu:";
             // 
             // numOcena
             // 
@@ -150,54 +136,229 @@
             0,
             0});
             // 
-            // label1
+            // nudIdAutoraZaOcenjivanje
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Id za ocenu:";
+            this.nudIdAutoraZaOcenjivanje.Location = new System.Drawing.Point(80, 103);
+            this.nudIdAutoraZaOcenjivanje.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudIdAutoraZaOcenjivanje.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudIdAutoraZaOcenjivanje.Name = "nudIdAutoraZaOcenjivanje";
+            this.nudIdAutoraZaOcenjivanje.Size = new System.Drawing.Size(57, 20);
+            this.nudIdAutoraZaOcenjivanje.TabIndex = 4;
+            this.nudIdAutoraZaOcenjivanje.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // label2
+            // btnIzmeniAutora
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Ocena:";
+            this.btnIzmeniAutora.Location = new System.Drawing.Point(143, 113);
+            this.btnIzmeniAutora.Name = "btnIzmeniAutora";
+            this.btnIzmeniAutora.Size = new System.Drawing.Size(139, 23);
+            this.btnIzmeniAutora.TabIndex = 3;
+            this.btnIzmeniAutora.Text = "Izmeni/Oceni Autora";
+            this.btnIzmeniAutora.UseVisualStyleBackColor = true;
+            this.btnIzmeniAutora.Click += new System.EventHandler(this.btnIzmeniAutora_Click);
             // 
-            // txtGetAutori
+            // nudIdAutora
             // 
-            this.txtGetAutori.Location = new System.Drawing.Point(6, 168);
-            this.txtGetAutori.Name = "txtGetAutori";
-            this.txtGetAutori.Size = new System.Drawing.Size(131, 20);
-            this.txtGetAutori.TabIndex = 9;
+            this.nudIdAutora.Location = new System.Drawing.Point(0, 66);
+            this.nudIdAutora.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.nudIdAutora.Name = "nudIdAutora";
+            this.nudIdAutora.Size = new System.Drawing.Size(131, 20);
+            this.nudIdAutora.TabIndex = 2;
             // 
-            // btnPronadjiAutoraPoImenu
+            // btnObrisiAutora
             // 
-            this.btnPronadjiAutoraPoImenu.Location = new System.Drawing.Point(143, 165);
-            this.btnPronadjiAutoraPoImenu.Name = "btnPronadjiAutoraPoImenu";
-            this.btnPronadjiAutoraPoImenu.Size = new System.Drawing.Size(139, 23);
-            this.btnPronadjiAutoraPoImenu.TabIndex = 10;
-            this.btnPronadjiAutoraPoImenu.Text = "Pronadji Autora po imenu";
-            this.btnPronadjiAutoraPoImenu.UseVisualStyleBackColor = true;
-            this.btnPronadjiAutoraPoImenu.Click += new System.EventHandler(this.btnPronadjiAutoraPoImenu_Click);
+            this.btnObrisiAutora.Location = new System.Drawing.Point(143, 63);
+            this.btnObrisiAutora.Name = "btnObrisiAutora";
+            this.btnObrisiAutora.Size = new System.Drawing.Size(139, 23);
+            this.btnObrisiAutora.TabIndex = 1;
+            this.btnObrisiAutora.Text = "Obrisi Autora";
+            this.btnObrisiAutora.UseVisualStyleBackColor = true;
+            this.btnObrisiAutora.Click += new System.EventHandler(this.btnObrisiAutora_Click);
+            // 
+            // btnDodajAutore
+            // 
+            this.btnDodajAutore.Location = new System.Drawing.Point(6, 19);
+            this.btnDodajAutore.Name = "btnDodajAutore";
+            this.btnDodajAutore.Size = new System.Drawing.Size(131, 23);
+            this.btnDodajAutore.TabIndex = 1;
+            this.btnDodajAutore.Text = "Dodaj Autore";
+            this.btnDodajAutore.UseVisualStyleBackColor = true;
+            this.btnDodajAutore.Click += new System.EventHandler(this.btnDodajAutore_Click);
+            // 
+            // Jela
+            // 
+            this.Jela.Controls.Add(this.PronadjiJeloPoSastojku);
+            this.Jela.Controls.Add(this.tboxNadjiJelo);
+            this.Jela.Controls.Add(this.IzmeniJelo);
+            this.Jela.Controls.Add(this.label4);
+            this.Jela.Controls.Add(this.label3);
+            this.Jela.Controls.Add(this.tboxOcena);
+            this.Jela.Controls.Add(this.tboxIdJelo);
+            this.Jela.Controls.Add(this.ObrisiJela);
+            this.Jela.Controls.Add(this.tboxIdJela);
+            this.Jela.Controls.Add(this.DodajJela);
+            this.Jela.Location = new System.Drawing.Point(351, 12);
+            this.Jela.Name = "Jela";
+            this.Jela.Size = new System.Drawing.Size(326, 243);
+            this.Jela.TabIndex = 11;
+            this.Jela.TabStop = false;
+            this.Jela.Text = "Jela";
+            // 
+            // PronadjiJeloPoSastojku
+            // 
+            this.PronadjiJeloPoSastojku.Location = new System.Drawing.Point(159, 177);
+            this.PronadjiJeloPoSastojku.Name = "PronadjiJeloPoSastojku";
+            this.PronadjiJeloPoSastojku.Size = new System.Drawing.Size(139, 23);
+            this.PronadjiJeloPoSastojku.TabIndex = 11;
+            this.PronadjiJeloPoSastojku.Text = "Pronadji Jelo po sastojku";
+            this.PronadjiJeloPoSastojku.UseVisualStyleBackColor = true;
+            this.PronadjiJeloPoSastojku.Click += new System.EventHandler(this.PronadjiJeloPoSastojku_Click_1);
+            // 
+            // tboxNadjiJelo
+            // 
+            this.tboxNadjiJelo.Location = new System.Drawing.Point(21, 177);
+            this.tboxNadjiJelo.Name = "tboxNadjiJelo";
+            this.tboxNadjiJelo.Size = new System.Drawing.Size(131, 20);
+            this.tboxNadjiJelo.TabIndex = 11;
+            // 
+            // IzmeniJelo
+            // 
+            this.IzmeniJelo.Location = new System.Drawing.Point(187, 99);
+            this.IzmeniJelo.Name = "IzmeniJelo";
+            this.IzmeniJelo.Size = new System.Drawing.Size(111, 51);
+            this.IzmeniJelo.TabIndex = 11;
+            this.IzmeniJelo.Text = "Izmeni/Oceni Jelo";
+            this.IzmeniJelo.UseVisualStyleBackColor = true;
+            this.IzmeniJelo.Click += new System.EventHandler(this.IzmeniJelo_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Ocena:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Id za ocenu:";
+            // 
+            // tboxOcena
+            // 
+            this.tboxOcena.Location = new System.Drawing.Point(112, 134);
+            this.tboxOcena.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.tboxOcena.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tboxOcena.Name = "tboxOcena";
+            this.tboxOcena.Size = new System.Drawing.Size(57, 20);
+            this.tboxOcena.TabIndex = 11;
+            this.tboxOcena.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // tboxIdJelo
+            // 
+            this.tboxIdJelo.Location = new System.Drawing.Point(112, 101);
+            this.tboxIdJelo.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.tboxIdJelo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tboxIdJelo.Name = "tboxIdJelo";
+            this.tboxIdJelo.Size = new System.Drawing.Size(57, 20);
+            this.tboxIdJelo.TabIndex = 11;
+            this.tboxIdJelo.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // ObrisiJela
+            // 
+            this.ObrisiJela.Location = new System.Drawing.Point(159, 63);
+            this.ObrisiJela.Name = "ObrisiJela";
+            this.ObrisiJela.Size = new System.Drawing.Size(139, 23);
+            this.ObrisiJela.TabIndex = 11;
+            this.ObrisiJela.Text = "Obrisi Jela";
+            this.ObrisiJela.UseVisualStyleBackColor = true;
+            this.ObrisiJela.Click += new System.EventHandler(this.ObrisiJela_Click);
+            // 
+            // tboxIdJela
+            // 
+            this.tboxIdJela.Location = new System.Drawing.Point(21, 66);
+            this.tboxIdJela.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.tboxIdJela.Name = "tboxIdJela";
+            this.tboxIdJela.Size = new System.Drawing.Size(131, 20);
+            this.tboxIdJela.TabIndex = 11;
+            // 
+            // DodajJela
+            // 
+            this.DodajJela.Location = new System.Drawing.Point(38, 19);
+            this.DodajJela.Name = "DodajJela";
+            this.DodajJela.Size = new System.Drawing.Size(131, 23);
+            this.DodajJela.TabIndex = 11;
+            this.DodajJela.Text = "Dodaj Jela";
+            this.DodajJela.UseVisualStyleBackColor = true;
+            this.DodajJela.Click += new System.EventHandler(this.DodajJela_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Jela);
             this.Controls.Add(this.grpboxAutor);
             this.Name = "Form1";
             this.Text = "Form1";
             this.grpboxAutor.ResumeLayout(false);
             this.grpboxAutor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutora)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutoraZaOcenjivanje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOcena)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutoraZaOcenjivanje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIdAutora)).EndInit();
+            this.Jela.ResumeLayout(false);
+            this.Jela.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxOcena)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxIdJelo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxIdJela)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,6 +376,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGetAutori;
         private System.Windows.Forms.Button btnPronadjiAutoraPoImenu;
+        private System.Windows.Forms.GroupBox Jela;
+        private System.Windows.Forms.Button DodajJela;
+        private System.Windows.Forms.Button ObrisiJela;
+        private System.Windows.Forms.NumericUpDown tboxIdJela;
+        private System.Windows.Forms.Button PronadjiJeloPoSastojku;
+        private System.Windows.Forms.TextBox tboxNadjiJelo;
+        private System.Windows.Forms.Button IzmeniJelo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown tboxOcena;
+        private System.Windows.Forms.NumericUpDown tboxIdJelo;
     }
 }
 
