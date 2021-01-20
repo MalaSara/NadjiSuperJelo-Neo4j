@@ -16,3 +16,27 @@ D:\FAKS\4.GODINA\Napredne baze podataka\New folder\NadjiSuperJelo\NadjiSuperJelo
 D:\FAKS\4.GODINA\Napredne baze podataka\New folder\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csproj.CopyComplete
 D:\FAKS\4.GODINA\Napredne baze podataka\New folder\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.exe
 D:\FAKS\4.GODINA\Napredne baze podataka\New folder\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.pdb
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csprojAssemblyReference.cache
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.Properties.Resources.resources
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csproj.GenerateResource.cache
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csproj.CoreCompileInputs.cache
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.pdb
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csproj.App.config
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\NadjiSuperJelo.exe.config
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\NadjiSuperJelo.exe
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\NadjiSuperJelo.pdb
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Neo4j.Driver.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Neo4jClient.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Newtonsoft.Json.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\System.Net.Http.Extensions.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\System.Net.Http.Primitives.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\System.ValueTuple.dll
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Neo4j.Driver.xml
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Neo4jClient.pdb
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Neo4jClient.xml
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\Newtonsoft.Json.xml
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\System.Net.Http.Extensions.xml
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\bin\Debug\System.Net.Http.Primitives.xml
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.csproj.CopyComplete
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.exe
+F:\elfak\moje\IV godina\7 semestar\NBP\Domaci2\NadjiSuperJelo-Neo4j\NadjiSuperJelo\NadjiSuperJelo\obj\Debug\NadjiSuperJelo.Form1.resources
