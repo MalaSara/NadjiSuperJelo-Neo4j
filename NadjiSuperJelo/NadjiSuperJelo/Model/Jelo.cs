@@ -17,12 +17,7 @@ namespace NadjiSuperJelo.Model
         public String nacinPripreme { get; set; }
 
         public int brojOcenaJela { get; set; }
-        public Kategorija pripadaKategoriji(Kategorija kategorija)
-        {
-            return kategorija;
-        }
-        
-        //
+        public Kategorija kategorija { get; set; }
         public List<Sastojak> Sastojci { get; set; }
 
     }

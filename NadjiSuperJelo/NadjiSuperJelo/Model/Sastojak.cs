@@ -11,7 +11,7 @@ namespace NadjiSuperJelo.Model
         public String idSastojak { get; set; }
         public String naziv { get; set; }
 
-       public int rateHranljivosti { get; set; }
-        public Jelo jelo { get; set; }
+        public int rateHranljivosti { get; set; }
+        public List<Jelo> jelo { get; set; }
     }
 }

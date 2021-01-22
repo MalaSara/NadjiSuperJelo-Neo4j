@@ -29,7 +29,7 @@ namespace NadjiSuperJelo
         {
             // sara - autentifikacija
             // kate - edukacija
-            client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "nadjisuperjelo");
+            GraphClient client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "nadjisuperjelo");
 
 
             try
@@ -43,7 +43,7 @@ namespace NadjiSuperJelo
             }
 
         }
-
+        #region Autor
         private void btnDodajAutore_Click(object sender, EventArgs e)
         {
             //for (int i = 1; i <= 5; i++)
@@ -164,12 +164,14 @@ namespace NadjiSuperJelo
                 MessageBox.Show(a.ime);
             }
         }
+        #endregion
 
+        #region Jelo
         private void DodajJela_Click(object sender, EventArgs e)
         {
             Jelo jelo = new Jelo();
 
-            jelo.idJelo = "1";
+          /*  jelo.idJelo = "1";
             jelo.autor = "Sara Milovanovic";
             jelo.nazivJela = "Ćufte u paradajz sosu";
             jelo.nacinPripreme = "prženje";
@@ -177,7 +179,7 @@ namespace NadjiSuperJelo
             jelo.Sastojci.Add("Mleveno meso");
             jelo.Sastojci.Add("Jaja");
             jelo.ocenaJela = "9";
-            jelo.brojOcenaJela = 3;
+            jelo.brojOcenaJela = 3;*/
 
 
             //}
@@ -285,5 +287,163 @@ namespace NadjiSuperJelo
                 MessageBox.Show(sas.naziv);
             }
         }
+        #endregion
+
+        #region Sastojak
+
+
+        private void btnDodajSastojke_Click(object sender, EventArgs e)
+        {
+
+            Sastojak sastojak = new Sastojak();
+            sastojak.idSastojak = "1";
+            sastojak.naziv = "Brasno";
+            sastojak.rateHranljivosti = 7;
+
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("idSastojak", sastojak.idSastojak);
+            queryDict1.Add("naziv", sastojak.naziv);
+            queryDict1.Add("rateHranljivosti", sastojak.rateHranljivosti);
+
+
+            var query = new Neo4jClient.Cypher.CypherQuery("CREATE (n:Sastojak {idSastojak:'" + sastojak.idSastojak +
+                    "', naziv:" + sastojak.naziv + ", rateHranljivosti:'" + sastojak.rateHranljivosti +  "}) return n",
+                    queryDict1, CypherResultMode.Set);
+
+            var query1 = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Jelo), (p:Sastojak) " +
+                                                            "WHERE n.idJelo = '1' AND p.idSastojak = '1'" +
+                                                            "CREATE (n)-[r:SADRZI]->(p)", new Dictionary<string, object>(), CypherResultMode.Set);
+
+            var query2 = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Jelo), (p:Sastojak) " +
+                                                            "WHERE n.idJelo = '1' AND p.idSastojak = '1'" +
+                                                            "CREATE (p)-[r:JE_SADRZAN]->(n)", new Dictionary<string, object>(), CypherResultMode.Set);
+
+        }
+
+        private void btnObrisiSastojak_Click(object sender, EventArgs e)
+        {
+            string idS = upDownObrisiSastojak.Value.ToString();
+
+            if (idS != "0")
+            {
+                Dictionary<string, object> queryDict = new Dictionary<string, object>();
+                queryDict.Add("idSastojak", idS);
+
+                var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where " +
+                    "(n:Sastojak) and exists(n.idSastojak) and n.idSastojak =~ {idSastojak} detach delete n",
+                     queryDict, CypherResultMode.Projection);
+            }
+            else
+                MessageBox.Show("Wrong ID!");
+        }
+
+        private void btnIzmeniSastojak_Click(object sender, EventArgs e)
+        {
+            string idSastojak = upDownIDPromena.Value.ToString();
+            string naziv = tbNazivSastojka.Text;
+
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("idSastojak", idSastojak);
+            queryDict1.Add("naziv", naziv);
+
+            var query= new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Sastojak) and has(n.idSastojak) and n.idSastojak =~ {idSastojak} " +
+                "set n.naziv = {naziv} return n", queryDict1, CypherResultMode.Projection);
+        }
+
+        private void btnPretraziSastojak_Click(object sender, EventArgs e)
+        {
+            string naziv = ".*" + tbNazivSastojka + ".*";
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("naziv", naziv);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Sastojak) and exists(n.naziv) and n.naziv =~ {naziv} return n",
+                                                      queryDict1, CypherResultMode.Set);
+
+            List<Sastojak> sastojci = ((IRawGraphClient)client).ExecuteGetCypherResults<Sastojak>(query).ToList();
+
+
+            foreach (Sastojak s in sastojci)
+            {
+                MessageBox.Show(s.naziv);
+            }
+        }
+
+        #endregion
+
+        #region Kategorija
+
+        private void btnDodajKategoriju_Click(object sender, EventArgs e)
+        {
+            Kategorija kategorija = new Kategorija();
+            kategorija.idKategorija = "1";
+            kategorija.naziv = "Predjelo";
+
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("idKategorija", kategorija.idKategorija);
+            queryDict1.Add("naziv", kategorija.naziv);
+
+
+            var query = new Neo4jClient.Cypher.CypherQuery("CREATE (n:Kategorija {idKategorija:'" + kategorija.idKategorija +
+                    "', naziv:" + kategorija.naziv + "}) return n",
+                    queryDict1, CypherResultMode.Set);
+
+            var query1 = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Jelo), (p:Kategorija) " +
+                                                            "WHERE n.idJelo = '1' AND p.idKategorija = '1'" +
+                                                            "CREATE (n)-[r:SPADA_U]->(p)", new Dictionary<string, object>(), CypherResultMode.Set);
+
+            var query2 = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Jelo), (p:Kategorija) " +
+                                                            "WHERE n.idJelo = '1' AND p.idKategorija = '1'" +
+                                                            "CREATE (p)-[r:PRIPADA]->(n)", new Dictionary<string, object>(), CypherResultMode.Set);
+        }
+
+        private void btnBrisiKategoriju_Click(object sender, EventArgs e)
+        {
+            string idK = upDownIdBrisiKat.Value.ToString();
+
+            if (idK != "0")
+            {
+                Dictionary<string, object> queryDict = new Dictionary<string, object>();
+                queryDict.Add("idKategorija", idK);
+
+                var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where " +
+                    "(n:Kategorija) and exists(n.idKategorija) and n.idKategorija =~ {idKategorija} detach delete n",
+                     queryDict, CypherResultMode.Projection);
+            }
+            else
+                MessageBox.Show("Wrong ID!");
+        }
+
+        private void btnIzmeniKategoriju_Click(object sender, EventArgs e)
+        {
+            string idKategorija = upDownKategorija.Value.ToString();
+            string naziv = tbNazivKategorije.Text;
+
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("idKategorija", idKategorija);
+            queryDict1.Add("naziv", naziv);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Kategorija) and has(n.idKategorija) and n.idKategorija =~ {idKategorija} " +
+                "set n.naziv = {naziv} return n", queryDict1, CypherResultMode.Projection);
+        }
+
+        private void btnPretraziKat_Click(object sender, EventArgs e)
+        {
+            string naziv = ".*" + tbNazivKategorije + ".*";
+            Dictionary<string, object> queryDict1 = new Dictionary<string, object>();
+            queryDict1.Add("naziv", naziv);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("start n=node(*) where (n:Kategorija) and exists(n.naziv) and n.naziv =~ {naziv} return n",
+                                                      queryDict1, CypherResultMode.Set);
+
+            List<Kategorija> kategorije = ((IRawGraphClient)client).ExecuteGetCypherResults<Kategorija>(query).ToList();
+
+
+            foreach (Kategorija k in kategorije)
+            {
+                MessageBox.Show(k.naziv);
+            }
+        }
+
+        #endregion
     }
 }

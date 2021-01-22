@@ -8,6 +8,8 @@ namespace NadjiSuperJelo.Model
 {
     public class Kategorija
     {
-        public String nazivKategorije { get; set; }
+        public String idKategorija { get; set; }
+        public String naziv { get; set; }
+        public List<Jelo> jela { get; set; }
     }
 }
